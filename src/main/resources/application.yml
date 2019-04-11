@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  #新版驱动需要用 cj.jdbc
+    url: jdbc:mysql://localhost:3306/asr?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+    username: root   #dev环境
+    password: 246810
+  jpa:
+    hibernate:
+      ddl-auto: update    #只能使用update!
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false #服务时不显示
+  devtools:
+    restart:
+      enabled: true #是否支持热部署
+      exclude: WEB/INF/**    #不重启的目录
+      additional-paths: src/main/java  #重启的目录
+server:
+  port: 8097
